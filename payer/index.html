@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Custom Captcha Generator</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+	<div class="cover">
+		<a href="../index.html">	<button class="back">back</button></a>
+
+		<div id="firstChoice">
+			<header>أكتب الحروف لتاكد من أنك لست روبوت</header>
+			<div class="captcha-box">
+				<div class="captcha-img">
+					<img src="assets/bg6.png" alt="Captch Background" />
+					<span class="captcha"></span>
+				</div>
+				<button class="reload">
+					<i class="fas fa-redo-alt"></i>
+				</button>
+			</div>
+			<form action="#" class="input-text">
+				<input type="text" placeholder="Enter captcha" maxlength="6" spellcheck="false" required />
+				<button class="verify">Check</button>
+			</form>
+
+		</div>
+			<div class="result"></div>
+
+		<div id="secondChoice">
+			<div class="result"></div>
+			<br><br><br>
+			<form class="input-text" id="uploadForm" action="php/pyer.php" method="post" enctype="multipart/form-data">
+				<input type="number" name="tele" id="tele" required>
+				<span class="form-label" style="color: orange;font-size: large;">الهاتف</span>
+
+				<input type="file" name="image" required>
+				<span class="form-label" style="color: white;font-size: large;">الهاتف</span>
+
+				<button class="uplod_submit">Upload</button>
+			</form>
+		</div>
+	</div>
+	<script src="jquery.min.js"></script>
+	<script>
+		$('#uploadForm').on('submit', function (e) {
+			var tele = $('#tele').val();
+			e.preventDefault();
+			$.ajax({
+				url: 'php/pyer.php',
+				type: 'POST',
+				data: new FormData(this),
+				contentType: false,
+				cache: false,
+				async: true,
+				processData: false,
+				success: function (data) {
+					$('#previewImage').attr('src', data);
+					change_value()
+				},
+				error: function () {
+					alert('Error while uploading image.');
+				}
+			});
+		});
+		var inp = document.getElementById("tele"); // getting the Input ID
+		function change_value() {
+			inp.value = ''; // <-- value
+		}
+	</script>
+	<script src="script.js"></script>
+</body>
+
+</html>

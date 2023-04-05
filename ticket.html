@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/ticketStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card card-left">
+
+            <h1>تذكرة <span>السفر</span></h1>
+
+
+            <div class="title">
+                <h2>تفاصيل حول سفرك</h2>
+
+            </div>
+            <div class="name">
+                <h2>تاريخ الحجز</h2>
+                <span id="date"></span>
+            </div>
+            <div class="seat">
+                <h2> وجهة المسافر</h2>
+                <span id="direction"></span>
+            </div>
+            <div class="time">
+                <h2>رقم مقعد </h2>
+                <span id="chaise_numero"></span>
+            </div>
+            <div class="seat">
+                <h2>اسم المسافر </h2>
+                <span id="nom"></span>
+            </div>
+            <div class="time">
+                <h2> اسم الباص </h2>
+                <span id="bus_numero"></span>
+            </div>
+
+        </div>
+        <div class="card card-right">
+            <div class="eye">
+
+            </div>
+            <div class="number">
+                <h3>السعر</h3>
+                <span id="prix"></span>
+
+            </div>
+            <div class="barcode">
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const nom = localStorage.getItem('nom');
+        const direction = localStorage.getItem('direction');
+        const date = localStorage.getItem('date');
+        const depart = localStorage.getItem('depart');
+        const tele = localStorage.getItem('tele');
+        const chaise_numero = localStorage.getItem('chaise_numero');
+        const bus_numero = localStorage.getItem('bus_numero');
+        const prix = localStorage.getItem('prix');
+        document.getElementById('nom').textContent = nom;
+        document.getElementById('direction').textContent = direction;
+        document.getElementById('date').textContent = date;
+        document.getElementById('bus_numero').textContent = bus_numero;
+        document.getElementById('chaise_numero').textContent = chaise_numero;
+        document.getElementById('prix').textContent = prix;
+        document.getElementById('tele').textContent = tele;
+    </script>
+</body>
+
+</html>

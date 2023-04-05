@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/secur.js"></script>
+    <link rel="stylesheet" href="style3.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d8cfbe84b9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Booking Form HTML Template</title>
+    <link rel="stylesheet" href="css/bootstrap2.min.css">
+    <link rel="stylesheet" href="css/style2.css">
+
+
+
+    <!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <meta name="robots" content="noindex, follow">
+
+</head>
+
+<body>
+
+    <div id="booking" class="section">
+        <a href="index.html"> <button class=" btn   btn-outline-secondary" style="color: bisque;font-size:larger;" type="button">عودة<i class="fas fa-background"></i></button></a>
+        <div class="section-center">
+            <div class="container">
+
+                <div class="row">
+                    <div class="booking-form">
+                        <div class="booking-bg"></div>
+
+                        <form id="form">
+                            <div class="form-header">
+                                <h2>reserver votre buss</h2>
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <input class="form-control" type="tel" placeholder="Enter an origin location">
+                                <span class="form-label">Pickup Location</span>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" id="nom" name="nom" placeholder="أسم المسافر" required>
+                                        <span class="form-label" style="color: white;font-size: large;">أسم
+                                            المسافر</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="number" placeholder="الهاتف" id="tele" name="tele">
+                                        <span class="form-label" style="color: white;font-size: large;">الهاتف</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="date" id="date" name="date" required>
+                                        <span class="form-label" style="color: white;font-size: large;">تحديد
+                                            التاريخ</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <select class="form-control" id="depart" name="depart" required>
+                                            <!-- <option value="" label="&nbsp;" selected hidden></option> -->
+                                            <option>matin</option>
+                                            <option>soir</option>
+
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                        <span class="form-label" style="color: white;font-size: large;">موعد
+                                            الذهاب</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group"> <select class="form-control" required id="direction" name="direction" onchange="show_price()">
+                                            <option value="noikchott">noikchott</option>
+                                            <option value="atar">atar</option>
+                                            <option value="noidibou">noidibou</option>
+                                            <option value="nema">nema</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                        <span class="form-label" style="color: white;font-size: large;">الوجهة</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="number" readonly placeholder="prix" id="prix" name="prix" value="5000" required>
+                                        <span class="form-label" style="color: white;font-size: large;">السعر</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group w-50">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    data-bs-toggle="modal" data-bs-target="#seatModal"
+                                                    fill="currentColor" class="bi bi-bus-front" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H7Zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9c1.876 0 3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44.303 44.303 0 0 0 8 4Zm0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44.304 44.304 0 0 1 8 2c1.876 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43.306 43.306 0 0 0 8 3Z" />
+                                                    <path
+                                                        d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A43.61 43.61 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2V8ZM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A42.611 42.611 0 0 1 8 1Z" />
+                                                </svg>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" readonly required id="bus_numero" data-bs-toggle="modal" data-bs-target="#seatModal" aria-describedby="basic-addon1">
+                                        </div>
+                                        <span class="form-label" style="color: white;font-size: large;">اختر باص</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <div class="input-group w-50">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <img src="img/seat.jpg" width="30" height="30" alt="">
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Input group example" required id="chaise_numero" readonly aria-label="Input group example" aria-describedby="basic-addon1">
+
+                                        </div>
+                                        <span class="form-label" style="color: white;font-size: large;">رقم
+                                            المقعد</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div>
+
+
+                                <!-- ------------------------------------------- -->
+
+
+
+                                <div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">اختر باص</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div style="float:left;">
+                                                    <p id="stop"></p>
+                                                    <ul id="seatDescription">
+                                                        <li style="background:url('../img/available_seat_img.gif') no-repeat scroll 0 0 transparent;">
+                                                            مقعد متوفر
+                                                        </li>
+                                                        <li style="background:url('../img/booked_seat_img.gif') no-repeat scroll 0 0 transparent;">
+                                                            مقعد محجوز
+                                                        </li>
+                                                        <li style="background:url('../img/selected_seat_img.gif') no-repeat scroll 0 0 transparent;">
+                                                            مقعد مختير
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text" for="inputGroupSelect01"> اختر
+                                                            باص</label>
+                                                    </div>
+                                                    <select id="cat1" class="cat1" width="7px" class="select">
+                                                        <option value=""> اختر باص</option>
+                                                    </select>
+                                                </div>
+                                                <div id="holder" style="margin: auto;">
+                                                    <ul id="place">
+                                                    </ul>
+                                                </div>
+                                                <!-- Add Anything -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- --------------------------------- -->
+                                <div class="form-btn">
+                                    <input type="submit" data-bs-toggle="modal" data-bs-target="#payer" class="btn btn-success" id="submit" class="submit-btn" value="احجز لآن">
+
+                                    <input type="button" data-bs-toggle="modal" data-bs-target="#payer" style="float: right;color: bisque;font-size: large;" class=" btn   btn-outline-secondary" class="submit-btn" value=" بنكي لي">
+                                </div>
+                        </form>
+
+                        <!-- ------------------------------ -->
+                        <div class="modal fade" id="payer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="cover">
+                                            <header>لاتنسى ارسال المبلغ كامل لرقمنا بنكي لي</header>
+                                            <div class="modal-body">
+                                                <div class="captcha-box">
+                                                    <div class="captcha-img">
+                                                        <span class="captcha">49619609</span>
+                                                    </div>
+
+                                                </div>
+                                                <a href="payer/index.html"> <button class="verify" type="button">ok</button></a>
+                                                <div class="result"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ------------------------------ -->
+        <script src="js/script.js"></script>
+        <script src="js/insert.js"></script>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/travel.js"></script>
+    <script>
+        btn = document.getElementById('submit');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let nom = document.getElementById('nom');
+            let direction = document.getElementById('direction');
+            let date = document.getElementById('date');
+            let depart = document.getElementById('depart');
+            let tele = document.getElementById('tele');
+            let chaise_numero = document.getElementById('chaise_numero');
+            let bus_numero = document.getElementById('bus_numero');
+            let prix = document.getElementById('prix');
+            nom = nom.value;
+            direction = direction.value;
+            depart = depart.value;
+            date = date.value;
+            tele = tele.value;
+            bus_numero = bus_numero.value;
+            chaise_numero = chaise_numero.value;
+            prix = prix.value;
+            localStorage.setItem('nom', nom);
+            localStorage.setItem('direction', direction);
+            localStorage.setItem('date', date);
+            localStorage.setItem('depart', depart);
+            localStorage.setItem('tele', tele);
+            localStorage.setItem('chaise_numero', chaise_numero);
+            localStorage.setItem('bus_numero', bus_numero);
+            localStorage.setItem('prix', prix);
+            window.location.href = "ticket.html";
+            //butoon();
+
+        });
+    </script>
+
+</body>
+
+</html>
